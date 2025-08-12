@@ -27,33 +27,60 @@
     });
 </script>
   }
-  /* Navigation Bar */
+    /* NAVIGATION */
   nav {
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
   }
-  nav .logo {
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #0074D9; /* blue */
+  /* Hamburger styles */
+  .hamburger {
+    display: none;
+    flex-direction: column;
     cursor: pointer;
+    width: 30px;
   }
-  nav ul {
+  .hamburger span {
+    height: 3px;
+    background: blue;
+    margin: 5px 0;
+    border-radius: 2px;
+  }
+  ul.nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 30px;
   }
-  nav ul li a {
-    text-decoration: none;
-    color: black;
+  ul.nav-links li a {
+    color: blue;
     font-weight: 600;
+    font-size: 1rem;
+  }
+
+  /* Responsive nav */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+    ul.nav-links {
+      flex-direction: column;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      background-color: white;
+      border: 1px solid #ccc;
+      width: 150px;
+      display: none;
+      padding: 10px 0;
+      z-index: 100;
+    }
+    ul.nav-links.show {
+      display: flex;
+    }
+    ul.nav-links li {
+      text-align: center;
+      padding: 8px 0;
+    }
+  }
+
   }
   /* Hamburger Menu for Mobile */
   .hamburger {
