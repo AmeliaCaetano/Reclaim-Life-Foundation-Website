@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Reclaim Life Foundation</title>
+<style>
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    color: #000;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* HEADER */
+  header {
+    background-color: white; /* header background white */
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+  }
+  header img.logo {
+    height: 50px; /* good size for logo */
+    background-color: #1e1e2f; /* match footer bg */
+    padding: 5px;
+    border-radius: 4px;
+  }
+
+  /* NAVIGATION */
+  nav {
+    position: relative;
+  }
+  /* Hamburger styles */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+  }
+  .hamburger span {
+    height: 3px;
+    background: blue;
+    margin: 5px 0;
+    border-radius: 2px;
+  }
+  ul.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  ul.nav-links li a {
+    color: blue;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  /* Responsive nav */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+    ul.nav-links {
+      flex-direction: column;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      background-color: white;
+      border: 1px solid #ccc;
+      width: 150px;
+      display: none;
+      padding: 10px 0;
+      z-index: 100;
+    }
+    ul.nav-links.show {
+      display: flex;
+    }
+    ul.nav-links li {
+      text-align: center;
+      padding: 8px 0;
+    }
+  }
+
+  /* HOME SECTION (was welcome) */
+  section#home {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 350px;
+  }
+  #home .left, #home .right {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #home .left {
+    background-color: #87ceeb; /* sky blue */
+    padding: 40px 30px;
+    color: black;
+    font-weight: bold;
+  }
+  #home .left h1 {
+    font-size: 2.2rem;
+    line-height: 1.3;
+    /* stacked vertically */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  #home .right img {
+    object-fit: cover;
+    height: 100%;
+  }
+
+  /* Beneath left and right columns: full width statement + button */
+  #home .welcome-bottom {
+    width: 100%;
+    background-color: #87ceeb; /* sky blue */
+    color: black;
+    font-size: 1.1rem;
+    padding: 20px 30px;
+    text-align: center;
+  }
+  #home .welcome-bottom p {
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+  }
+  #home .welcome-bottom a.button {
+    background-color: black;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  #home .welcome-bottom a.button:hover {
+    background-color: #333;
+  }
+
+  /* MISSION & VISION SECTION */
+  section#mission-vision {
+    background-color: #1e1e2f; /* blue black */
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 30px 30px 30px;
+    gap: 20px;
+  }
+  #mission-vision > div {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+  }
+  #mission-vision h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+  #mission-vision p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+  }
+  #mission-vision img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  /* CORE VALUES SECTION */
+  section#core-values {
+    background-color: #87ceeb; /* sky blue */
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 30px;
+    gap: 20px;
+  }
+  #core-values .left, #core-values .right {
+    flex: 1 1 50%;
+  }
+  #core-values h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  #core-values ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-size: 1.1rem;
+  }
+  #core-values ul li {
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  #core-values ul li strong {
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  #core-values .right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* FOOTER */
+  footer {
+    background-color: #87ceeb; /* sky blue */
+    color: black;
+    padding: 25px 30px;
+    font-size: 1rem;
+  }
+  footer .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+  }
+  footer .contact-info a {
+    color: black;
+    font-weight: 600;
+  }
+  footer .social-links {
+    margin-left: auto;
+    display: flex;
+    gap: 20px;
+  }
+  footer .social-links a {
+    font-weight: 600;
+  }
+  footer .copyright {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    #home, #mission-vision, #core-values {
+      flex-direction: column;
+    }
+    #home .left, #home .right,
+    #mission-vision > div,
+    #core-values .left, #core-values .right {
+      flex: 1 1 100%;
+    }
+    footer .contact-info {
+      flex-direction: column;
+      gap: 10px;
+    }
+    footer .social-links {
+      margin-left: 0;
+      justify-content: flex-start;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="images/reclaimlogo.jpg" alt="Reclaim Life Foundation Logo" class="logo" />
+  
+  <nav>
+    <div class="hamburger" id="hamburger" aria-label="Toggle menu" tabindex="0" role="button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about-us">About Us</a></li>
+      <li><a href="#what-we-do">What We Do</a></li>
+      <li><a href="#contact-us">Contact Us</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Home Section (was welcome) -->
+<section id="home">
+  <div class="left" aria-label="Welcome Text">
+    <h1>
+      <span>RECLAIMING LIVES</span>
+      <span>RESTORING HOPE</span>
+      <span>EMPOWERING LIVES</span>
+      <span>BEYOND DIGESTIVE</span>
+      <span>HEALTH CONDITIONS</span>
+    </h1>
+  </div>
+  <div class="right" aria-label="Welcome Image">
+    <img src="images/water-picture.jpg" alt="Water related image" />
+  </div>
+  <div class="welcome-bottom" role="region" aria-live="polite">
+    <p>
+      AT RECLAIM LIFE FOUNDATION WE ARE DEDICATED TO PROVIDING UNWAVERING SUPPORT TO INDIVIDUALS WITH DIGESTIVE HEALTH CONDITIONS.
+      JOIN US IN OUR MISSION TO MAKE A DIFFERENCE TODAY.
+    </p>
+    <a href="#what-we-do" class="button" role="button">Learn More</a>
+  </div>
+</section>
+
+<!-- Mission & Vision Section -->
+<section id="mission-vision">
+  <div id="mission">
+    <h2>MISSION</h2>
+    <p>
+      Our mission is to empower patients and their families by providing financial support, medical supplies, emotional support and awareness campaigns. We strive to eliminate stigma, improve access to care, and restore dignity to every individual impacted by digestive system illnesses, ensuring no one faces their journey alone.
+    </p>
+    <img src="images/digestive-system.png" alt="Digestive System illustration" />
+  </div>
+  <div id="vision">
+    <h2>VISION</h2>
+    <p>
+      Our vision is to create a world where no one facing digestive diseases suffer alone - where financial barriers are removed, awareness leads to early detection and every individual receives the care, dignity and the support they deserve.
+    </p>
+    <img src="images/inspiration2.png" alt="Inspiration visual" />
+  </div>
+</section>
+
+<!-- Core Values Section -->
+<section id="core-values">
+  <div class="left">
+    <h2>CORE VALUES</h2>
+    <ul>
+      <li><strong>SERVING EACH OTHER WITH LOVE</strong><br />Our services are footed in compassion and the desire to uplift one another.</li>
+      <li><strong>HOPE</strong><br />Of sunrise - We inspire and nurture hope in every journey.</li>
+      <li><strong>INTEGRITY</strong><br />We remain truthful, transparent and ethical in all we do.</li>
+    </ul>
+  </div>
+  <div class="right">
+    <img src="images/world-ibd.png" alt="World IBD visual" />
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="contact-us">
+  <div class="contact-info">
+    <a href="mailto:amiecaetano@gmail.com" aria-label="Send email to amiecaetano@gmail.com">amiecaetano@gmail.com</a>
+    <a href="tel:+27726632239" aria-label="Call +27 72 663 2239">+27 72 663 2239</a>
+    <div class="social-links" aria-label="Social media links">
+      <a href="https://www.facebook.com/profile.php?id=61578987757161" target="_blank" rel="noopener noreferrer" aria-label="Facebook Reclaim Life Foundation">
+        Facebook: Reclaim Life Foundation
+      </a>
+      <a href="https://www.instagram.com/reclaimlifefoundation?igsh=MnVpM3F4b2thdTY3" target="_blank" rel="noopener noreferrer" aria-label="Instagram Reclaim Life Foundation">
+        Instagram: Reclaim life foundation
+      </a>
+      <a href="https://wa.me/27726632239" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp +27 72 663 2239">
+        +27 72 663 2239
+      </a>
+    </div>
+  </div>
+  <div class="copyright">
+    &copy; 2025 Reclaim Life Foundation. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  // Hamburger menu toggle for mobile
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+
+  // Optional: close menu on link click (mobile)
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('show');
+    });
+  });
+</script>
+
+</body>
+</html>
