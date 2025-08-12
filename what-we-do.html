@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>What We Do - Reclaim Life Foundation</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #87ceeb; /* sky blue */
+    color: black;
+    margin: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* Navigation Bar Styles */
+  nav {
+    background-color: #0b1a33; /* blue-black */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: relative;
+  }
+
+  nav .logo {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-decoration: none;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li {
+    margin-left: 20px;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 6px 10px;
+  }
+
+  nav ul li a:hover,
+  nav ul li a.active {
+    background-color: #1a2b55; /* slightly lighter blue-black for hover */
+    border-radius: 5px;
+  }
+
+  /* Hamburger Menu Styles */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 25px;
+    height: 20px;
+    justify-content: space-between;
+  }
+
+  .hamburger div {
+    background-color: white;
+    height: 3px;
+    border-radius: 2px;
+  }
+
+  /* Contact and Social Icons */
+  .contact-social {
+    color: white;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .contact-social a {
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+  }
+
+  .contact-social a:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsive Nav */
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      position: absolute;
+      top: 55px;
+      right: 0;
+      background-color: #0b1a33;
+      width: 200px;
+      display: none;
+      border-radius: 0 0 0 8px;
+      box-shadow: -2px 4px 8px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+    nav ul.show {
+      display: flex;
+    }
+    nav ul li {
+      margin: 15px 0;
+      margin-left: 0;
+      text-align: right;
+      padding-right: 20px;
+    }
+    .hamburger {
+      display: flex;
+    }
+    .contact-social {
+      display: none; /* hide on mobile */
+    }
+  }
+
+  /* Page Content Styles */
+  main {
+    flex: 1;
+  }
+
+  h1 {
+    font-weight: bold;
+    font-size: 2.5em;
+    margin: 30px 20px 20px 20px;
+  }
+  h2 {
+    font-weight: bold;
+    font-size: 1.6em;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 1em;
+    margin-bottom: 20px;
+  }
+  .section {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px 40px 20px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .text-column {
+    flex: 1;
+    padding: 0 20px;
+    min-width: 300px;
+  }
+  .image-column {
+    flex: 1;
+    background-color: #0b1a33; /* blue-black */
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    min-width: 300px;
+  }
+  .image-column img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  /* Alternate layout: switch image and text for every other section */
+  .section:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  /* Breaking stigma subsection styling */
+  .breaking-stigma {
+    margin-left: auto;
+    max-width: 50%;
+  }
+  .breaking-stigma h3 {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 8px;
+  }
+  .breaking-stigma p {
+    font-size: 1em;
+  }
+
+  /* Responsive for smaller screens */
+  @media (max-width: 768px) {
+    .section {
+      flex-direction: column !important;
+      margin: 0 10px 30px 10px;
+    }
+    .image-column, .text-column {
+      min-width: 100%;
+      padding: 10px 0;
+    }
+  }
+
+  /* Footer Styles */
+  footer {
+    background-color: #87ceeb; /* sky blue */
+    padding: 20px 30px;
+    text-align: center;
+    font-size: 0.95em;
+    color: #000;
+    margin-top: auto;
+  }
+  footer .contact-info {
+    margin-bottom: 10px;
+  }
+  footer .contact-info a {
+    color: #000;
+    text-decoration: none;
+    margin: 0 8px;
+  }
+  footer .contact-info a:hover {
+    text-decoration: underline;
+  }
+  footer .social-links a {
+    color: #000;
+    text-decoration: none;
+    margin: 0 8px;
+    font-weight: bold;
+  }
+  footer .social-links a:hover {
+    text-decoration: underline;
+  }
+  footer small {
+    display: block;
+    margin-top: 15px;
+    font-size: 0.8em;
+    color: #333;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="home.html" class="logo">Reclaim Life Foundation</a>
+
+  <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" role="button" tabindex="0">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <ul id="nav-menu">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about-us.html">Our Story</a></li>
+    <li><a href="what-we-do.html" class="active">What We Do</a></li>
+    <li><a href="contact-us.html">Contact Us</a></li>
+  </ul>
+
+  <div class="contact-social">
+    <span>📞 +27 72 663 2239</span>
+    <a href="mailto:amiecaetano@gmail.com" aria-label="Email us">✉️ amiecaetano@gmail.com</a>
+    <a href="https://www.facebook.com/profile.php?id=61578987757161" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+    <a href="https://www.instagram.com/reclaimlifefoundation?igsh=MnVpM3F4b2thdTY3" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+  </div>
+</nav>
+
+<main>
+  <h1>Our Programs</h1>
+
+  <!-- Medical Care -->
+  <div class="section">
+    <div class="text-column">
+      <h2>Medical Care</h2>
+      <p>Our medical care programs are dedicated to providing essential supplies such as feeding tubes, colostomy bags or stoma bags and more, medical assistance and support to individuals with digestive health conditions who are in urgent need of immediate assistance.</p>
+    </div>
+    <div class="image-column">
+      <img src="mrcstoma.jpg" alt="Medical Care Stoma Supplies" />
+    </div>
+  </div>
+
+  <!-- Emotional and Mental Support -->
+  <div class="section">
+    <div class="text-column">
+      <h2>Emotional and Mental Support</h2>
+      <p>The emotional and mental support focuses on long-term efforts to provide counseling, therapy, and support groups to help individuals cope with the challenges of living with digestive health conditions. We create a safe space where patients can share their experiences, accept and embrace change. We believe acceptance is key to all changes.</p>
+    </div>
+    <div class="image-column">
+      <img src="hands-picture.jpg" alt="Emotional Support Hands" />
+    </div>
+  </div>
+
+  <!-- Awareness and Education -->
+  <div class="section">
+    <div class="text-column">
+      <h2>Awareness and Education</h2>
+      <p>Raising awareness and educating the public about digestive health conditions is at the core of our work. We plan to collaborate with local communities, healthcare professionals, and educators to empower individuals to take an active role in managing their health. Raising awareness is crucial for early detection, treatment, and prevention.</p>
+    </div>
+    <div class="image-column">
+      <img src="digestive-education.jpg" alt="Digestive Education" />
+    </div>
+  </div>
+
+  <!-- Breaking the Stigma -->
+  <div class="section">
+    <div class="image-column">
+      <img src="inspirational1.jpg" alt="Breaking the Stigma" />
+    </div>
+    <div class="text-column breaking-stigma">
+      <h3>Breaking the Stigma</h3>
+      <p>We aim to break the stigma surrounding digestive health conditions. These conditions are life-altering, often stigmatized, and financially draining. Through open conversation, education, and visibility, we empower individuals to live boldly and without shame.</p>
+    </div>
+  </div>
+
+  <!-- Donation and Support -->
+  <div class="section">
+    <div class="text-column">
+      <h2>Donation and Support</h2>
+      <p>Our donation and support initiatives are essential to sustain our efforts in providing vital assistance to individuals with digestive health conditions. Your contributions enable us to continue offering medical care, emotional support, and educational resources to those in need.</p>
+    </div>
+    <div class="image-column">
+      <img src="stoma-picture.jpg" alt="Donation Support" />
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="contact-info">
+    Contact us: 
+    <a href="mailto:amiecaetano@gmail.com">amiecaetano@gmail.com</a> | 
+    <a href="tel:+27726632239">+27 72 663 2239</a> | 
+    <a href="https://wa.me/27726632239" target="_blank" rel="noopener" aria-label="WhatsApp Chat">WhatsApp: +27 72 663 2239</a>
+  </div>
+  <div class="social-links">
+    Facebook: <a href="https://www.facebook.com/profile.php?id=61578987757161" target="_blank" rel="noopener">Reclaim Life Foundation</a> | 
+    Instagram: <a href="https://www.instagram.com/reclaimlifefoundation?igsh=MnVpM3F4b2thdTY3" target="_blank" rel="noopener">Reclaim life foundation</a>
+  </div>
+  <small>© 2025 Reclaim Life Foundation. All rights reserved.</small>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+
+  function toggleMenu() {
+    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', !isExpanded);
+    navMenu.classList.toggle('show');
+  }
+
+  hamburger.addEventListener('click', toggleMenu);
+  hamburger.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      toggleMenu();
+      e.preventDefault();
+    }
+  });
+</script>
+
+</body>
+</html>
