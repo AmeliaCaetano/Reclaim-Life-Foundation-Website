@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact Us - Reclaim Life Foundation</title>
+<style>
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #87ceeb; /* sky blue background */
+    color: black;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  /* Navigation Bar */
+  nav {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  nav .logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #0074D9; /* blue */
+    cursor: pointer;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+  }
+  /* Hamburger Menu for Mobile */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 4px 0;
+  }
+  @media (max-width: 768px) {
+    nav ul {
+      display: none;
+      flex-direction: column;
+      background: white;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      width: 150px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    nav ul.active {
+      display: flex;
+    }
+    .hamburger {
+      display: flex;
+    }
+  }
+
+  /* Main contact container */
+  main {
+    flex: 1;
+    padding: 30px 20px;
+    max-width: 900px;
+    margin: auto;
+    background-color: #87ceeb; /* sky blue */
+  }
+  main h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  main p, main a, main span {
+    font-size: 1rem; /* medium font */
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+  main a {
+    color: #0074D9;
+    text-decoration: underline;
+  }
+  main a:hover {
+    color: #005fa3;
+  }
+  main .verse {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  main .scripture-text {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+
+  /* Contact details */
+  .contact-info {
+    margin-bottom: 2rem;
+  }
+  .contact-info span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+  }
+  .social-links a {
+    margin-right: 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #0074D9;
+    text-decoration: none;
+  }
+  .social-links a:hover {
+    color: #005fa3;
+  }
+
+  /* The four phrases */
+  .phrases {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+
+  /* Contact form styles */
+  form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 0 auto 2rem auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  form input[type="text"],
+  form input[type="email"],
+  form textarea {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+  }
+  form textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  form button {
+    background-color: #0074D9;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  form button:hover {
+    background-color: #005fa3;
+  }
+
+  /* Footer */
+  footer {
+    background: white;
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 0.9rem;
+    color: #555;
+    border-top: 1px solid #ddd;
+  }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo" onclick="window.location.href='home.html'">Reclaim Life Foundation</div>
+  <div class="hamburger" id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <ul id="nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about-us.html">About Us</a></li>
+    <li><a href="what-we-do.html">What We Do</a></li>
+    <li><a href="contact-us.html">Contact Us</a></li>
+  </ul>
+</nav>
+
+<main>
+  <h2>Remember that God promised us in Jeremiah</h2>
+  <p class="verse">JEREMIAH 30:17</p>
+  <p class="scripture-text">"I WILL RESTORE YOUR HEALTH AND HEAL YOUR WOUNDS, DECLARES THE LORD."</p>
+
+  <div class="contact-info">
+    <span><strong>Email:</strong> <a href="mailto:amiecaetano@gmail.com">amiecaetano@gmail.com</a></span>
+    <span><strong>Phone:</strong> <a href="tel:+27726632239">+27 72 663 2239</a> WhatsApp</span>
+    <span><strong>Facebook:</strong> 
+      <a href="https://www.facebook.com/profile.php?id=61578987757161" target="_blank" rel="noopener noreferrer">Reclaim Life Foundation</a>
+    </span>
+    <span><strong>Instagram:</strong> 
+      <a href="https://www.instagram.com/reclaimlifefoundation?igsh=MnVpM3F4b2thdTY3" target="_blank" rel="noopener noreferrer">Reclaim Life Foundation</a>
+    </span>
+  </div>
+
+  <div class="phrases">
+    <p>Reach Out</p>
+    <p>Support Us</p>
+    <p>Get Involved</p>
+    <p>Join us in making a difference</p>
+  </div>
+
+  <form id="contactForm" action="mailto:amiecaetano@gmail.com" method="POST" enctype="text/plain" >
+    <label for="name">Name</label>
+    <input type="text" id="name" name="Name" placeholder="Your name" required />
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="Email" placeholder="Your email" required />
+
+    <label for="message">Message</label>
+    <textarea id="message" name="Message" placeholder="Write your message here..." required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</main>
+
+<footer>
+  &copy; 2025 Reclaim Life Foundation. All rights reserved.
+</footer>
+
+<script>
+  // Hamburger menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+
+</body>
+</html>
