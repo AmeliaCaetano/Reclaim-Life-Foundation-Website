@@ -218,6 +218,11 @@
     <p>Instagram: <a href="https://www.instagram.com/reclaimlifefoundation?igsh=MnVpM3F4b2thdTY3" target="_blank">Reclaim life foundation</a></p>
     <p>&copy; 2025 Reclaim Life Foundation. All Rights Reserved.</p>
 </footer>
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
 
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+});
 </body>
 </html>
