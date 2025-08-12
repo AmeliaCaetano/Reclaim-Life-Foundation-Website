@@ -391,6 +391,22 @@
       e.preventDefault();
     }
   });
+
+<script>
+  // Hamburger menu toggle for mobile
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+
+  // Optional: close menu on link click (mobile)
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('show');
+    });
+  });
 </script>
 
 </body>
