@@ -23,7 +23,6 @@
     });
 </script>
   }
-
     /* NAVIGATION */
   nav {
     position: relative;
@@ -75,6 +74,40 @@
     ul.nav-links li {
       text-align: center;
       padding: 8px 0;
+    }
+  }
+
+  }
+  /* Hamburger Menu for Mobile */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 4px 0;
+  }
+  @media (max-width: 768px) {
+    nav ul {
+      display: none;
+      flex-direction: column;
+      background: white;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      width: 150px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    nav ul.active {
+      display: flex;
+    }
+    .hamburger {
+      display: flex;
     }
   }
 
