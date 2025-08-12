@@ -14,6 +14,14 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+<div id="navbar"></div>
+<script>
+  fetch('navbar.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('navbar').innerHTML = html;
+    });
+</script>
   }
 
   /* Navigation Bar Styles */
